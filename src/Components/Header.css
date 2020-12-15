@@ -1,26 +1,39 @@
 .headerContainer {
-  height: 130px;
+  height: 120px;
   /* background-color: aqua;  */
   display: flex;
   justify-content: space-between;
 }
 
 .logoWrapper {
-    width:30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menuWrapper {
-    width:70%;
-    background-color: #008037;
-    display:  flex;
-    justify-content: space-evenly;
-    align-items: center;
+  width: 70%;
+  background-color: #378b29;
+  background-image: linear-gradient(315deg, #378b29 0%, #74d680 74%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.navItems{
-    font-family: 'Montserrat',sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
+.navItems {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.navLinks {
+  text-decoration: "none";
+  padding: 8px;
+  color: #fff6f6;
+}
+.navLinks:hover {
+  color: #b71c1c;
+}
+
+.navActive {
+  border-bottom: 2px solid #fff6f6;
 }

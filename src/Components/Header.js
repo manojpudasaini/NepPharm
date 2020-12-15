@@ -13,22 +13,22 @@ const Header =()=>{
             <div className="menuWrapper">
                 <div className="navItems">
                     <UserOutlined />
-                    <NavLink to="/user"  style={{ textDecoration: 'none', padding:'8px'}}>Hello, User</NavLink>
+                    <NavLink to="/user" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none'}}>Hello, User</NavLink>
                 </div>
 
                 <div className="navItems">
                    <ShoppingCartOutlined />
-                    <NavLink to="/cart" style={{ textDecoration: 'none',padding:'8px'  }}>Cart</NavLink>
+                    <NavLink to="/cart" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none'}}>Cart</NavLink>
                 </div>
 
                 <div className="navItems">
                     <HistoryOutlined />
-                    <NavLink to="/orderhistory" style={{ textDecoration: 'none',padding:'8px' }}>Order History</NavLink>
+                    <NavLink to="/orderhistory" activeClassName="navActive" className="navLinks"  style={{ textDecoration: 'none',padding:'8px' }}>Order History</NavLink>
                 </div>
 
                 <div className="navItems">
                     <LoginOutlined />
-                    <NavLink to="/sign" style={{ textDecoration: 'none', padding:'8px'  }}>Sign In</NavLink>
+                    <NavLink to="/sign" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Sign In</NavLink>
                 </div>
             </div>
         </div>
