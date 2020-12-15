@@ -1,0 +1,26 @@
+.headerContainer {
+  height: 130px;
+  /* background-color: aqua;  */
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoWrapper {
+    width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuWrapper {
+    width:70%;
+    background-color: #008037;
+    display:  flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.navItems{
+    font-family: 'Montserrat',sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
