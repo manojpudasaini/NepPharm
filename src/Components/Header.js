@@ -7,7 +7,7 @@ const Header =()=>{
     return(
         <div className="headerContainer">
            <div className="logoWrapper">    
-            <NavLink to="/"><img src={Logo} height='100%' width='300px' alt="neppharm"/></NavLink>
+            <NavLink to="/"><img src={Logo} height='100%' width='250px' alt="neppharm"/></NavLink>
            </div>
 
             <div className="menuWrapper">
