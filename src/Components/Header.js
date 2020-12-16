@@ -23,20 +23,21 @@ const Header =()=>{
                     <NavLink to="/Articles" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Articles</NavLink>
                </div>
                
+               <div className="navItems">
+                    <NavLink to="/orderhistory" activeClassName="navActive" className="navLinks"  style={{ textDecoration: 'none',padding:'8px' }}>Order History</NavLink>
+                </div>
                <div className="navItems"> 
-                    <strong style={{display:'block', color:'#fff6f6', fontSize:'1em'}}>Hello, Guest</strong>
-                    <NavLink to="/sign" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>
+                    <small style={{display:'block', color:'#fff6f6', fontSize:'0.7em'}}>Hello, Guest</small>
+                    <NavLink to="/sign" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px', marginTop:"-8px"  }}>
                         Sign In
                         </NavLink>
                 </div>
                
-                <div className="navItems">
-                    <NavLink to="/orderhistory" activeClassName="navActive" className="navLinks"  style={{ textDecoration: 'none',padding:'8px' }}>Order History</NavLink>
-                </div>
+                
 
                 <div className="navItems">
                     
-                    <NavLink to="/cart" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', fontSize:'1.2em'}}><ShoppingCartOutlined />-#</NavLink>
+                    <NavLink to="/cart" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', fontSize:'1.2em'}}><ShoppingCartOutlined style={{paddingRight:"8px"}}/>0</NavLink>
                 </div>
             </div>
         </div>

@@ -20,6 +20,7 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 50px 0px 50px 0px;
+  box-shadow: 0 4px 4px rgb(229, 207, 207);
 }
 .navItems {
   font-family: "Poppins", sans-serif;
