@@ -36,6 +36,8 @@
 }
 .navLinks:hover {
   color: #000;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .navActive {
@@ -45,7 +47,7 @@
   display:none;
 }
 
-@media all and (max-width: 768px){
+@media screen and (max-width: 768px){
   .burger{
     display: block;
     color:#000;
@@ -59,12 +61,13 @@
     width: 250px;
     max-height: 100vh;
     position:absolute;
-    display:flex;
     flex-direction: column;
     padding:50px;
     right:0%;
-    transform: translateX(1000px);
-    transition: 0.3s ease-in-out;
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    transition: all 0.2s ease-in-out;
+    transition-delay: 0ms;
   }
   .navItems{
     padding: 20px;

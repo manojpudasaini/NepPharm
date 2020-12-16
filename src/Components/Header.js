@@ -12,7 +12,7 @@ const Header =()=>{
            <div className="logoWrapper">    
             <NavLink to="/"><img src={Logo} height='100%' width='165px' alt="neppharm"/></NavLink>
            </div>
-            <div className="menuWrapper" style={{transform: open ?"translateX(0px)":""}}>
+            <div className="menuWrapper" style={{transform: open ?"translateY(0px)":""}}>
 
                <div className="navItems" onClick={()=> setOpen(false)}>
                     <NavLink to="/sign"  className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Request Medicines</NavLink>
