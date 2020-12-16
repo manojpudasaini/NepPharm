@@ -1,7 +1,8 @@
 .headerContainer {
-  height: 67px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .logoWrapper {
@@ -38,4 +39,36 @@
 
 .navActive {
     color: #b71c1c;
+}
+.burger{
+  display:none;
+}
+
+@media all and (max-width: 768px){
+  .burger{
+    display: block;
+    color:#000;
+    font-size: 35px;
+    position:absolute;
+    top:2%;
+    right:5%;
+  }
+
+  .menuWrapper{
+    max-width: 250px;
+    max-height: 100vh;
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    padding:50px;
+    right:0%;
+    transform: translateX(1000px);
+    transition: 0.4s ease-in-out;
+  }
+  .navItems{
+    padding: 20px;
+  }
+  .logoWrapper{
+    width:30%;
+  }
 }
