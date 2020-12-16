@@ -1,5 +1,5 @@
 import Header from './Components/Header';
-import Body from './Components/Body';
+import Body from './Components/Route';
 import {BrowserRouter} from 'react-router-dom';
 function App() {
   return (
