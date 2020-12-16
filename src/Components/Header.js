@@ -12,23 +12,23 @@ const Header =()=>{
             <div className="menuWrapper">
 
                <div className="navItems">
-                    <NavLink to="/sign" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Request Medicines</NavLink>
+                    <NavLink to="/sign"  className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Request Medicines</NavLink>
                </div>
                 
                <div className="navItems">
-                    <NavLink to="/sign" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Consult Doctor</NavLink>
+                    <NavLink to="/sign"  className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Consult Doctor</NavLink>
                </div>
                
                <div className="navItems">
-                    <NavLink to="/Articles" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Articles</NavLink>
+                    <NavLink to="/Articles"  className="navLinks" style={{ textDecoration: 'none', padding:'8px'  }}>Articles</NavLink>
                </div>
                
                <div className="navItems">
-                    <NavLink to="/orderhistory" activeClassName="navActive" className="navLinks"  style={{ textDecoration: 'none',padding:'8px' }}>Order History</NavLink>
+                    <NavLink to="/orderhistory"  className="navLinks"  style={{ textDecoration: 'none',padding:'8px' }}>Order History</NavLink>
                 </div>
                <div className="navItems"> 
                     <small style={{display:'block', color:'#fff6f6', fontSize:'0.7em'}}>Hello, Guest</small>
-                    <NavLink to="/sign" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', padding:'8px', marginTop:"-8px"  }}>
+                    <NavLink to="/sign"  className="navLinks" style={{ textDecoration: 'none', padding:'8px', marginTop:"-8px"  }}>
                         Sign In
                         </NavLink>
                 </div>
@@ -37,7 +37,7 @@ const Header =()=>{
 
                 <div className="navItems">
                     
-                    <NavLink to="/cart" activeClassName="navActive" className="navLinks" style={{ textDecoration: 'none', fontSize:'1.2em'}}><ShoppingCartOutlined style={{paddingRight:"8px"}}/>0</NavLink>
+                    <NavLink to="/cart"  className="navLinks" style={{ textDecoration: 'none', fontSize:'1.2em'}}><ShoppingCartOutlined style={{paddingRight:"8px"}}/>0</NavLink>
                 </div>
             </div>
         </div>
