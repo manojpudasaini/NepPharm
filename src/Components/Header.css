@@ -8,6 +8,7 @@
 .logoWrapper {
   height:100%;
   width: 20%;
+  margin-left: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +56,7 @@
   }
 
   .menuWrapper{
-    max-width: 250px;
+    width: 250px;
     max-height: 100vh;
     position:absolute;
     display:flex;
@@ -63,7 +64,7 @@
     padding:50px;
     right:0%;
     transform: translateX(1000px);
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
   .navItems{
     padding: 20px;
