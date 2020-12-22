@@ -61,8 +61,10 @@
     width: 250px;
     max-height: 100vh;
     position:absolute;
+    top:55px;
+    border-radius: 12px;
     flex-direction: column;
-    padding:50px;
+    padding:20px;
     right:0%;
     -webkit-transform: translateY(-1000px);
     transform: translateY(-1000px);
@@ -70,7 +72,9 @@
     transition-delay: 0ms;
   }
   .navItems{
-    padding: 20px;
+    padding: 20px 10px;
+    min-width: 90%;
+    border-bottom:1px solid rgb(221, 206, 121);
   }
   .logoWrapper{
     width:30%;
