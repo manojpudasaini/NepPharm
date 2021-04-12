@@ -43,7 +43,7 @@ const Header =()=>{
                 </div>
                
             </div>
-            <MenuOutlined onClick={()=> setOpen(!open) }className="burger" style={{color: open? "green":""}}/>
+            <MenuOutlined    onClick={()=> setOpen(!open) }className="burger" style={{color: open? "green":""}}/>
             {console.log(open)}
         </div>
     )

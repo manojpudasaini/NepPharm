@@ -26,30 +26,37 @@ export default function IndexPage() {
   return (
     <div
       style={{
-        marginTop:50,
-        display: "flex",
-        width: "100%",
-        justifyContent: "center",
-        alignItems: "center"
+        
+        maxWidth:"400px",
+        width:"100%",
+        margin:"0 auto",
+        marginTop:"120px",
+       
       }}
     >
       <Form
         onFinish={handleFormSubmit}
-        style={{ maxWidth: "500px", height: "100vh" }}
+        // style={{ maxWidth: "800px", height: "100vh" }}
         layout="vertical"
       >
-        <Form.Item label="Email Address">
+        <Form.Item validate={{required:true,
+        }} label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Email Address</strong>}>
           <Input
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             value={user.email}
             type="email"
+            size="large"
+            required={true}
+            
+            
           />
         </Form.Item>
-        <Form.Item label="password">
+        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Password</strong>}>
           <Input.Password
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             type="email"
+            size="large"
           />
         </Form.Item>
         <Form.Item>
@@ -58,7 +65,7 @@ export default function IndexPage() {
             htmlType="submit"
             type="primary"
           >
-            Create User
+            Sign In
           </Button>
         </Form.Item>
       </Form>
