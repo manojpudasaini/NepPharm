@@ -1,4 +1,5 @@
 import { Form, Button, Input, message, notification } from "antd";
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { auth } from "../utils/firebase";
 import React, { useState } from "react";
 import "antd/dist/antd.css";
@@ -26,7 +27,6 @@ export default function IndexPage() {
   return (
     <div
       style={{
-        
         maxWidth:"400px",
         width:"100%",
         margin:"0 auto",
@@ -36,32 +36,67 @@ export default function IndexPage() {
     >
       <Form
         onFinish={handleFormSubmit}
-        // style={{ maxWidth: "800px", height: "100vh" }}
         layout="vertical"
       >
-        <Form.Item validate={{required:true,
-        }} label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Email Address</strong>}>
+        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>E-mail Address </strong>}
+                   rules={[{
+                      required: true,
+                      message: 'Please input your E-mail!',
+                }]}
+                name="email"
+                       
+        >
           <Input
+            prefix={<UserOutlined className="site-form-item-icon" />} placeholder="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             value={user.email}
             type="email"
             size="large"
-            required={true}
-            
-            
           />
         </Form.Item>
-        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Password</strong>}>
+        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Password</strong>}
+        rules={[{
+          required: true,
+          message: 'Please input your Password!',
+    }]}
+        name="password"
+        hasFeedback
+        >
           <Input.Password
+           prefix={<LockOutlined className="site-form-item-icon" />} placeholder="password"
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
-            type="email"
+            type="password"
             size="large"
           />
         </Form.Item>
+
+        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Confirm Password</strong>}
+        rules={[{
+          required: true,
+          message: 'Please confirm your Password!',
+    },
+    ({ getFieldValue }) => ({
+      validator(_, value) {
+        if (!value || getFieldValue('password') === value) {
+          return Promise.resolve();
+        }
+        return Promise.reject(new Error('The two passwords that you entered do not match!'));
+      },
+    }),
+  ]}
+        name="confirm"
+        dependencies={['password']}
+        hasFeedback>
+        <Input.Password
+        prefix={<LockOutlined className="site-form-item-icon" />} placeholder="password"
+        size="large"
+        />
+        </Form.Item>
+
         <Form.Item>
           <Button
-            style={{ marginTop: "20px" }}
+            style={{ marginTop: "20px", backgroundColor:'green' }}
             htmlType="submit"
             type="primary"
           >

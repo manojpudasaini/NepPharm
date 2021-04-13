@@ -13,7 +13,7 @@ const Home = () => {
             <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop interval={2000} showArrows={false}>
                 {Image.map((item, index) =>
                     <div>
-                        <img src={item.image} alt={`image-nep-pharm-${index}`} height="700px"/>
+                        <img src={item.image} alt={`image-nep-pharm-${index}`} height="500px"/>
                     </div>)
                 }
             </Carousel>
