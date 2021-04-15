@@ -44,12 +44,12 @@
     color: #b71c1c;
 }
 .burger{
-  display:none;
+  display:none !important;
 }
 
 @media screen and (max-width: 768px){
   .burger{
-    display: block;
+    display: block !important;
     color:#000;
     font-size: 35px;
     position:absolute;
