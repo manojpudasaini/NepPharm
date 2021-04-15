@@ -5,6 +5,7 @@ import Articles from "./Components/Pages/Articles";
 import SignIn from "./Components/Pages/SignIn";
 import Header from './Components/Header';
 import "antd/dist/antd.css";
+import Signup from './Components/Pages/signup';
 
 const App = () => {
 
@@ -23,7 +24,9 @@ const App = () => {
         <Route path="/sign" component={SignIn} > 
           <SignIn />
         </Route>
-
+        <Route path="/create-account" component={Signup} > 
+          <Signup/>
+        </Route>
       </Switch>
       </div>
     </Router>

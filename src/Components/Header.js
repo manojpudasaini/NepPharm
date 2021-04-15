@@ -6,9 +6,10 @@ import { ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
 import {firebase} from '../Components/utils/firebase'
 
 const Header =()=>{
-    const [open, setOpen]= useState(false);
+const [open, setOpen]= useState(false);
 const user=firebase.auth().currentUser;
 const router=useHistory();
+
 
     return(
         <div className="headerContainer">

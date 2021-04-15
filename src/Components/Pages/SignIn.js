@@ -1,10 +1,12 @@
-import { Form, Button, Input, message, notification } from "antd";
+import { Form, Button, Input, message, notification ,Modal} from "antd";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { auth } from "../utils/firebase";
 import React, { useState } from "react";
 import Logo from '../../Assets/neppharm.png';
 import {useHistory} from 'react-router-dom';
-import './login.css'
+import './login.css';
+
+
 export default function IndexPage() {
   const [user, setUser] = useState({
     email: "",
@@ -12,6 +14,8 @@ export default function IndexPage() {
   });
   const history=useHistory();
   const [loading, setLoading] = useState(false);
+  const [isVisible,setIsVisible]=useState(false);
+  const [email, setEmail]=useState('');
   const handleFormSubmit = async () => {
     setLoading(true)
     try {
@@ -28,6 +32,20 @@ export default function IndexPage() {
     }
     setLoading(false);
   };
+  const handlePassword=async()=>{
+    try{
+      await auth.sendPasswordResetEmail(email)
+      notification.success({
+        message:  `Email sent For passowrd Reset to ${email}`,
+      })
+      setIsVisible(false)
+
+    }catch(e){
+      message.error(e?.message)
+    }
+    
+
+  }
   return (
     <div
       
@@ -89,13 +107,23 @@ export default function IndexPage() {
        
         </Form.Item>
         <div style={{textAlign:"center",marginTop:"-15px",fontSize:"16px"}}>
-          <a href="/forgot-password">Forgot Password ? Click here</a>
+          <a onClick={()=>setIsVisible(true)}>Forgot Password ? Click here</a>
         </div>
         <div style={{textAlign:"center",marginTop:'10px',fontSize:"18px",textDecoration:"underline"}}>
-          <a href="/signup">Create New account</a>
+          <a href="/create-account" >Create New account</a>
         </div>
       </Form>
-      
+      <Modal  title="Password Reset" visible={isVisible} onCancel={()=>setIsVisible(false)} footer={null}>
+        <Form layout="vertical" onFinish={handlePassword}>
+          <Form.Item requiredMark label="Email Address">
+            <Input size="large" onChange={(e)=>setEmail(e.target.value)} value={email} type="email" placeholder={"Enter Your Email"} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit" type="primary" disabled={email===""?true:false}>Send Password Reset Email</Button>
+          </Form.Item>
+        </Form>
+
+      </Modal>
     </div>
   );
 }
