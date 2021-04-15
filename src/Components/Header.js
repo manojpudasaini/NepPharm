@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import "./Header.css";
 import Logo from '../Assets/neppharm.png';
-import {NavLink} from 'react-router-dom';
+import {NavLink,useHistory} from 'react-router-dom';
 import { ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
+import {firebase} from '../Components/utils/firebase'
 
 const Header =()=>{
     const [open, setOpen]= useState(false);
+const user=firebase.auth().currentUser;
+const router=useHistory();
 
     return(
         <div className="headerContainer">
@@ -31,10 +34,15 @@ const Header =()=>{
                 </div>
 
                <div className="navItems" onClick={()=> setOpen(false)}> 
-                    <small style={{display:'block', color:'#fff6f6', fontSize:'0.7em'}}>Hello, Guest</small>
-                    <NavLink to="/sign"  className="navLinks" style={{ textDecoration: 'none', padding:'8px', marginTop:"-8px"  }}>
-                        Sign In
-                    </NavLink>
+                    <small style={{display:'block', color:'#fff6f6', fontSize:'0.7em'}}>Hello,{ user ? user?.email:"Guest"}</small>
+                   
+                  { user?<strong style={{cursor:"pointer",color:"#fff"}} onClick={async()=>{
+                      await firebase.auth().signOut();
+                      router.push("/sign")
+                      
+                      }}>Log out</strong>: <NavLink to="/sign"  className="navLinks" style={{ textDecoration: 'none', padding:'8px', marginTop:"-8px"  }}>
+                      Sign In
+                    </NavLink>}
                 </div>
 
                 <div className="navItems" onClick={()=> setOpen(false)}>

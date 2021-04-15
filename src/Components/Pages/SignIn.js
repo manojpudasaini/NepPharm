@@ -2,49 +2,51 @@ import { Form, Button, Input, message, notification } from "antd";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { auth } from "../utils/firebase";
 import React, { useState } from "react";
-import "antd/dist/antd.css";
+import Logo from '../../Assets/neppharm.png';
+import {useHistory} from 'react-router-dom';
+import './login.css'
 export default function IndexPage() {
   const [user, setUser] = useState({
     email: "",
     password: ""
   });
+  const history=useHistory();
+  const [loading, setLoading] = useState(false);
   const handleFormSubmit = async () => {
+    setLoading(true)
     try {
-      await auth.createUserWithEmailAndPassword(user.email, user.password);
-      message.success("user created");
-      const users = auth.currentUser;
-      console.log(users);
-      await users.sendEmailVerification({ url: "http://localhost:3000" });
+      await auth.signInWithEmailAndPassword(user.email, user.password);
+
       notification.success({
-        message: "Verification mail sent to",
-        description: user?.email
+        message: "Login Sucess",
+        description: "Welcome to NepPharm"
       });
+      history.push("/")
     } catch (e) {
-      console.log("error", e?.message);
+
       message.error(e?.message);
     }
+    setLoading(false);
   };
   return (
     <div
-      style={{
-        maxWidth:"400px",
-        width:"100%",
-        margin:"0 auto",
-        marginTop:"120px",
-       
-      }}
+      
+      className="login"
     >
+      
       <Form
         onFinish={handleFormSubmit}
         layout="vertical"
+        className="formWrapper"
       >
-        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>E-mail Address </strong>}
-                   rules={[{
-                      required: true,
-                      message: 'Please input your E-mail!',
-                }]}
-                name="email"
-                       
+        <img className="logo" src={Logo}/>
+        <Form.Item label={<strong style={{ fontSize: "18px", fontWeight: "500" }}>E-mail Address </strong>}
+          rules={[{
+            required: true,
+            message: 'Email Address Is Required',
+          }]}
+          name="email"
+
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />} placeholder="email"
@@ -54,16 +56,16 @@ export default function IndexPage() {
             size="large"
           />
         </Form.Item>
-        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Password</strong>}
-        rules={[{
-          required: true,
-          message: 'Please input your Password!',
-    }]}
-        name="password"
-        hasFeedback
+        <Form.Item label={<strong style={{ fontSize: "18px", fontWeight: "500" ,margin:"15px 0px 0px 0px"}}>Password</strong>}
+          rules={[{
+            required: true,
+            message: 'Password Is Required',
+          }]}
+          name="password"
+          hasFeedback
         >
           <Input.Password
-           prefix={<LockOutlined className="site-form-item-icon" />} placeholder="password"
+            prefix={<LockOutlined className="site-form-item-icon" />} placeholder="password"
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             type="password"
@@ -71,39 +73,29 @@ export default function IndexPage() {
           />
         </Form.Item>
 
-        <Form.Item label={<strong style={{fontSize:"18px", fontWeight:"500"}}>Confirm Password</strong>}
-        rules={[{
-          required: true,
-          message: 'Please confirm your Password!',
-    },
-    ({ getFieldValue }) => ({
-      validator(_, value) {
-        if (!value || getFieldValue('password') === value) {
-          return Promise.resolve();
-        }
-        return Promise.reject(new Error('The two passwords that you entered do not match!'));
-      },
-    }),
-  ]}
-        name="confirm"
-        dependencies={['password']}
-        hasFeedback>
-        <Input.Password
-        prefix={<LockOutlined className="site-form-item-icon" />} placeholder="password"
-        size="large"
-        />
-        </Form.Item>
 
-        <Form.Item>
-          <Button
-            style={{ marginTop: "20px", backgroundColor:'green' }}
-            htmlType="submit"
-            type="primary"
-          >
-            Sign In
+        <Form.Item >
+          
+            <Button
+              style={{ marginTop: "30px", backgroundColor: 'green',fontSize:'18px' ,height:'40px',width:"100%"}}
+              htmlType="submit"
+              type="primary"
+              loading={loading}
+              
+
+            >
+              Login
           </Button>
+       
         </Form.Item>
+        <div style={{textAlign:"center",marginTop:"-15px",fontSize:"16px"}}>
+          <a href="/forgot-password">Forgot Password ? Click here</a>
+        </div>
+        <div style={{textAlign:"center",marginTop:'10px',fontSize:"18px",textDecoration:"underline"}}>
+          <a href="/signup">Create New account</a>
+        </div>
       </Form>
+      
     </div>
   );
 }
