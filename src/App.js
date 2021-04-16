@@ -5,7 +5,7 @@ import Articles from "./Components/Pages/Articles";
 import SignIn from "./Components/Pages/SignIn";
 import Header from './Components/Header';
 import "antd/dist/antd.css";
-import Signup from './Components/Pages/signup';
+import Signup from './Components/Pages/Signup';
 
 const App = () => {
 
