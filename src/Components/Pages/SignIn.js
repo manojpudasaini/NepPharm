@@ -1,9 +1,10 @@
-import { Form, Button, Input, message, notification ,Modal} from "antd";
+import { Form, Button, Input, message, notification ,Modal,Upload} from "antd";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { auth } from "../utils/firebase";
 import React, { useState } from "react";
 import Logo from '../../Assets/neppharm.png';
 import {useHistory} from 'react-router-dom';
+
 import './login.css';
 
 
@@ -46,11 +47,14 @@ export default function IndexPage() {
     
 
   }
+
+  
   return (
     <div
       
       className="login"
     >
+     
       
       <Form
         onFinish={handleFormSubmit}

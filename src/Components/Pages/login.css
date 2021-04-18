@@ -22,3 +22,20 @@
     margin-top:10px;
     margin-bottom: 20px;
 }
+.upload{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+}
+.profile>img{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    object-fit: cover;
+    background-color: ghostwhite;
+    
+}
